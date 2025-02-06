@@ -11,6 +11,9 @@ from score import return_result
 from password_stars import print_star
 
 def main():
+    """
+    The main function, which is the entry point of the program. It displays the menu, gets the user's choice, and performs the corresponding action.
+    """
     print(MENU)
     user_choice = get_valid_choice()
     user_score = -1
@@ -38,6 +41,9 @@ def main():
 
 
 def get_valid_score():
+    """
+    Gets a valid score from the user. The score must be between 0 and 100.
+    """
     user_score = int(input("your score:"))
     while user_score < 0 or user_score > 100:
         print("invalid score")
@@ -46,6 +52,9 @@ def get_valid_score():
     return user_score
 
 def get_valid_choice():
+    """
+    Gets a valid choice from the user. The choice must be 'g', 'p', 's', or 'q'.
+    """
     user_choice = input("your choice:").lower()
     while user_choice != 'g' and user_choice != 'p' and user_choice != 's' and user_choice != 'q':
         print("invalid choice")
@@ -55,6 +64,9 @@ def get_valid_choice():
     return user_choice
 
 def is_score(user_score):
+    """
+    Checks if the user has already entered a score. Returns True if the score is not -1, False otherwise.
+    """
     # return True or False
     # default value is -1
     return user_score != -1
