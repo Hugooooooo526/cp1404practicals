@@ -8,10 +8,10 @@ password_star files for prac_02 lesson
 def main():
     minimum_length = 6
     password = get_password(minimum_length)
-    print_star_base_password(password)
+    print_star(len(password))
 
-def print_star_base_password(password):
-    print(len(password) * "*")
+def print_star(number):
+    print(number * "*")
 
 def get_password(minimum_length):
     password = input("Password:")
@@ -21,15 +21,4 @@ def get_password(minimum_length):
         password = str(input("Password:"))
     return password
 
-main()
-
-
-# def main():
-#     user_password = int(input(""))
-#     getvalidPassword(user_password)
-
-
-# def getvalidPassword(user_password):
-
-
-#     return user_password
+# main()
