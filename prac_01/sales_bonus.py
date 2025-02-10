@@ -10,7 +10,7 @@ do next thing
 
 sales = float(input("Enter sales: $"))
 while(sales >= 0):
-    # 负数的时候是结束
+
     if sales < 1000:
         bonus_rate = 0.1
 
@@ -24,5 +24,3 @@ while(sales >= 0):
     sales = float(input("Enter sales: $"))
 
 print("End of program")
-
-
