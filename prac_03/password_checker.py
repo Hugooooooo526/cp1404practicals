@@ -1,20 +1,32 @@
 """
 CP1404/CP5632 - Practical
 Password checker "skeleton" code to help you get started
-
-All passwords must contain at least one each of:
-
-digit数字
-lowercase letter小写 大写
-uppercase letter
-
-The starter code uses constants to store:
-
 """
 
-MIN_LENGTH = 2
-MAX_LENGTH = 6
-IS_SPECIAL_CHARACTER_REQUIRED = False#when have special character false.  No hace True
+
+"""
+sample output:
+Please enter a valid password
+Your password must be between 5 and 15 characters, and contain:
+    1 or more uppercase characters
+    1 or more lowercase characters
+    1 or more numbers
+    and 1 or more special characters:  !@#$%^&*()_-=+`~,./'[]<>?{}|\
+> this?
+Invalid password!
+> whyNot?CanIhaveThis?
+Invalid password!
+> 12345678901234567890aBcv@
+Invalid password!
+> thisISmy123Pass!
+Invalid password!
+> 1thisISit!
+Your 10 character password is valid: 1thisISit!
+"""
+
+MIN_LENGTH = 5
+MAX_LENGTH = 15
+IS_SPECIAL_CHARACTER_REQUIRED = True
 SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
 
 
@@ -26,7 +38,6 @@ def main():
     print("\t1 or more lowercase characters")
     print("\t1 or more numbers")
     if IS_SPECIAL_CHARACTER_REQUIRED:
-        #REQUIRED True
         print("\tand 1 or more special characters: ", SPECIAL_CHARACTERS)
     password = input("> ")
     while not is_valid_password(password):
@@ -39,7 +50,6 @@ def main():
 
 def is_valid_password(password):
     """Determine if the provided password is valid."""
-    # TODO: if length is wrong, return False
     if len(password) < MIN_LENGTH or len(password) > MAX_LENGTH:
         return False
 
@@ -48,7 +58,6 @@ def is_valid_password(password):
     number_of_digit = 0
     number_of_special = 0
     for character in password:
-        # TODO: count each kind of character (use str methods like isdigit)
         if character in SPECIAL_CHARACTERS:
             number_of_special += 1
         elif character.isdigit():
@@ -60,19 +69,15 @@ def is_valid_password(password):
         else:
             pass
 
-    # TODO: if any of the 'normal' counts are zero, return False
     if number_of_lower == 0 or number_of_upper == 0 or number_of_digit == 0:
         return False
 
-    # TODO: if special characters are required, then check the count of those
-    # and return False if it's zero
     if number_of_special == 0:
         if IS_SPECIAL_CHARACTER_REQUIRED == True:
             return False
         else:
             pass
 
-    # if we get here (without returning False), then the password must be valid
     return True
 
 
