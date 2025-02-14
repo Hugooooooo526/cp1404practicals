@@ -36,14 +36,14 @@ def main():
 
     while MIN_PRICE <= price <= MAX_PRICE:
         number_of_days(current_day,price)
-        price = change_price()
+        price = change_price(price)
         print(f"${price:,.2f}")
 
     print(f"${price:,.2f}", file=out_file)
     out_file.close()
 
-def change_price():
-    price_change = 0
+def change_price(price):
+    price_change_rate = 0
         # generate a random integer of 1 or 2
         # if it's 1, the price increases, otherwise it decreases
     if random.randint(1, 2) == 1:
