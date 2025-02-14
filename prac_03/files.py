@@ -42,8 +42,11 @@ print(f"Hi {name}!")
 
 with open("numbers.txt", 'r') as in_file:
     total = 0
+    #this to invole the index of lines
     for index, line in enumerate(in_file):
         if index < 2:  
+        #first two lines
+            #strip to delete the \n of each lines
             total += int(line.strip())
     print(total)
 
