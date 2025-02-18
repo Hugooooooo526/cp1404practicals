@@ -31,11 +31,11 @@ Double-check the report printing function you just wrote. Is it well-designed ac
 def main():
     """Display income report for incomes over a given number of months."""
     incomes = []
-    # 将变量months重命名为num_months以提高代码的可读性
+    # Rename the variable months to num_months for better readability
     num_months = int(input("How many months? "))
 
     for month in range(1, num_months + 1):
-        # 使用f-string格式化字符串以获取收入输入
+        # Use f-string to format string for getting income input
         income = float(input(f"Enter income for month {month}: "))
         incomes.append(income)
 
@@ -44,11 +44,11 @@ def main():
     for month in range(1, num_months + 1):
         income = incomes[month - 1]
         total += income
-        # 将报告打印移到了一个单独的函数中
+        # Move report printing to a separate function
         print_report(month, income, total)
 
 def print_report(month, income, total):
-    """打印收入报告的每个月的信息"""
+    """Print income report information for each month"""
     print(f"Month {month:2} - Income: ${income:10.2f} Total: ${total:10.2f}")
 
 main()
