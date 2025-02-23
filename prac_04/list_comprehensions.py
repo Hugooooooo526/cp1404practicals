@@ -13,8 +13,14 @@ full_initials = [name.split()[0][0] + name.split()[1][0] for name in full_names]
 print(full_initials)
 
 a_names = [name for name in names if name.startswith('A')]
+
+##v
 print(a_names)
 
+#join
+#Ada Alan Angel Bob Jimi
+# The sorted() function sorts the list of names in alphabetical order.
+# The join() method concatenates the sorted names into a SINGLE STRING, separated by spaces.
 print(" ".join(sorted(names)))
 
 lowercase_full_names = [name.lower() for name in full_names]
@@ -24,7 +30,6 @@ almost_numbers = ['0', '10', '21', '3', '-7', '88', '9']
 
 numbers = [int(number) for number in almost_numbers]
 print(numbers)
-
 
 numbers_greater_than_9 = [number for number in numbers if number > 9]
 print(numbers_greater_than_9)
