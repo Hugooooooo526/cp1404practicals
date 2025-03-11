@@ -9,4 +9,8 @@ class ProgrammingLanguage:
     def __str__(self):
         return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
     
+    def is_dynamic(self):
+        #  The data is already inside the object, so you don't need to tell the object its own data.
+        return self.typing == "Dynamic"
+    
 # Python, Dynamic Typing, Reflection=True, First appeared in 1991
