@@ -4,6 +4,11 @@ Note that the import has a folder (module) in it.
 This is why we name our folders with no spaces or capitals, as valid module names.
 """
 
+"""
+Estimate time: 15 minutes
+Actual time: 10 minutes
+"""
+
 # Dynamically import Car class
 import os
 import sys

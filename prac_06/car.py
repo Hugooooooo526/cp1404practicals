@@ -1,5 +1,7 @@
-"""CP1404/CP5632 Practical - Car class example."""
-
+"""
+Estimate time: 25 minutes
+Actual time: 19 minutes
+"""
 
 class Car:
     """Represent a Car object."""

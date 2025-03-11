@@ -3,14 +3,6 @@ Estimate time: 30 minutes
 Actual time: 20 minutes
 """
 
-"""
-Sample output:
-The dynamically typed languages are:
-Python
-Ruby
-
-"""
-
 # Dynamically import Car class
 import os
 import sys
