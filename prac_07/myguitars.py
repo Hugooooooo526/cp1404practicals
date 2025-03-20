@@ -3,7 +3,7 @@ import time
 
 def main():
     guitars = []
-    print("My guitars!")
+    print("My guitars")
     
     # Read the guitars.csv file
     with open('guitars.csv', 'r') as in_file:
