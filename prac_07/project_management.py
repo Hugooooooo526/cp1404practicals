@@ -1,7 +1,7 @@
 """
 Project Management System
 Estimate time: 1 hours
-Actual time: 
+Actual time: 65 minutes
 """
 
 import datetime
@@ -9,7 +9,6 @@ from project import Project
 
 
 def main():
-    """Main program for project management system."""
     print("Welcome to Pythonic Project Management")
     projects = load_projects("projects.txt")
     print(f"Loaded {len(projects)} projects from projects.txt")
