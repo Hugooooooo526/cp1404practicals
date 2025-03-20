@@ -1,7 +1,7 @@
 """
 Project class implementation
-Estimate time: 2 hours
-Actual time: 2.5 hours
+Estimate time: 1 hours
+Actual time: 65 minutes
 """
 
 import datetime
