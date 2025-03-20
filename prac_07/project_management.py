@@ -66,7 +66,9 @@ def display_projects(projects):
     incomplete_projects = [project for project in projects if not project.is_complete()]
     completed_projects = [project for project in projects if project.is_complete()]
     
-    # Sort by priority (will add this feature later)
+    # Sort by priority
+    incomplete_projects.sort()
+    completed_projects.sort()
     
     # Display incomplete projects
     print("Incomplete projects: ")
