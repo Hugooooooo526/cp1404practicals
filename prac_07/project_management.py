@@ -4,6 +4,7 @@ Estimate time: 4 hours
 Actual time: 
 """
 
+import datetime
 from project import Project
 
 
@@ -36,6 +37,8 @@ def main():
             print(f"Saved {len(projects)} projects to {filename}")
         elif choice == "D":
             display_projects(projects)
+        elif choice == "F":
+            filter_projects_by_date(projects)
         elif choice == "Q":
             save_option = input("Would you like to save to projects.txt? ")
             if save_option.lower() not in ["no", "n", "no, i think not."]:
@@ -97,6 +100,34 @@ def display_projects(projects):
     print("Completed projects: ")
     for project in completed_projects:
         print(f"  {project}")
+
+
+def filter_projects_by_date(projects):
+    """Filter projects by date and display them."""
+    date_string = input("Show projects that start after date (dd/mm/yy): ")
+    try:
+        # Try to parse date with different formats
+        try:
+            # Try with format %d/%m/%Y (4-digit year)
+            filter_date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+        except ValueError:
+            # Try with format %d/%m/%y (2-digit year)
+            filter_date = datetime.datetime.strptime(date_string, "%d/%m/%y").date()
+        
+        # Filter projects that start after the given date
+        filtered_projects = []
+        for project in projects:
+            if project.get_date_object() >= filter_date:
+                filtered_projects.append(project)
+        
+        # Sort the filtered projects by date
+        filtered_projects.sort(key=lambda project: project.get_date_object())
+        
+        # Display the filtered projects
+        for project in filtered_projects:
+            print(project)
+    except ValueError:
+        print("Invalid date format. Use dd/mm/yyyy or dd/mm/yy.")
 
 
 if __name__ == "__main__":
