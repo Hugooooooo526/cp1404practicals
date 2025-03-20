@@ -1,6 +1,6 @@
 """
 Project Management System
-Estimate time: 4 hours
+Estimate time: 1 hours
 Actual time: 
 """
 
@@ -138,12 +138,50 @@ def add_new_project(projects):
     """Add a new project to the list of projects."""
     print("Let's add a new project")
     name = input("Name: ")
-    start_date = input("Start date (dd/mm/yy): ")
-    priority = int(input("Priority: "))
-    cost_estimate = float(input("Cost estimate: $"))
-    completion_percentage = int(input("Percent complete: "))
     
-    # Create a new project and add it to the list
+    valid_date = False
+    while not valid_date:
+        start_date = input("Start date (dd/mm/yy): ")
+        try:
+            datetime.datetime.strptime(start_date, "%d/%m/%Y")
+            valid_date = True
+        except ValueError:
+            try:
+                datetime.datetime.strptime(start_date, "%d/%m/%y")
+                valid_date = True
+            except ValueError:
+                print("Invalid date format. Please use dd/mm/yyyy or dd/mm/yy.")
+    
+    valid_input = False
+    while not valid_input:
+        try:
+            priority = int(input("Priority: "))
+            valid_input = True
+        except ValueError:
+            print("Priority must be an integer.")
+    
+    valid_input = False
+    while not valid_input:
+        try:
+            cost_string = input("Cost estimate: $")
+            if cost_string.startswith('$'):
+                cost_string = cost_string[1:]
+            cost_estimate = float(cost_string)
+            valid_input = True
+        except ValueError:
+            print("Cost estimate must be a valid number.")
+    
+    valid_input = False
+    while not valid_input:
+        try:
+            completion_percentage = int(input("Percent complete: "))
+            if 0 <= completion_percentage <= 100:
+                valid_input = True
+            else:
+                print("Percent complete must be between 0 and 100.")
+        except ValueError:
+            print("Percent complete must be an integer.")
+    
     project = Project(name, start_date, priority, cost_estimate, completion_percentage)
     projects.append(project)
 
