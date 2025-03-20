@@ -30,9 +30,17 @@ def main():
             filename = input("Enter filename to load projects from: ")
             projects = load_projects(filename)
             print(f"Loaded {len(projects)} projects from {filename}")
+        elif choice == "S":
+            filename = input("Enter filename to save projects to: ")
+            save_projects(filename, projects)
+            print(f"Saved {len(projects)} projects to {filename}")
         elif choice == "D":
             display_projects(projects)
         elif choice == "Q":
+            save_option = input("Would you like to save to projects.txt? ")
+            if save_option.lower() not in ["no", "n", "no, i think not."]:
+                save_projects("projects.txt", projects)
+                print(f"Saved {len(projects)} projects to projects.txt")
             print("Thank you for using custom-built project management software.")
         else:
             print("Invalid choice")
@@ -58,6 +66,16 @@ def load_projects(filename):
     except FileNotFoundError:
         print(f"File {filename} not found. Starting with no projects.")
     return projects
+
+
+def save_projects(filename, projects):
+    """Save projects to a file."""
+    with open(filename, "w") as file:
+        # Write the header line
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        # Write each project
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
 
 
 def display_projects(projects):
