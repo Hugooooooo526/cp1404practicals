@@ -29,10 +29,20 @@ def load_data():
     return data  # Return the list of lists
 
 
+# def display_subject_details(data):
 def display_subject_details(data):
     """Display subject details in a formatted string."""
     for subject, lecturer, students in data:
         print(f"{subject} is taught by {lecturer} and has {students} students")
 
+def get_data(data):
+    """read data from file formatted like: subject, lecture student"""
+    data = []
+    input_file = open(FILENAME)
+    for line in input_file:
+        line = line.strip()
+        parts = line.split(',')
+        parts[2] = int(parts[2])
+        
 
 main()
