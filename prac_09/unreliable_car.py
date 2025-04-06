@@ -5,7 +5,7 @@ UnreliableCar class
 from prac_09.car import Car
 import random
 
-class UnreliableCaår(Car):
+class UnreliableCar(Car):
     """An unreliable version of Car that may not drive depending on reliability."""
         
     def __init__(self,  reliability=0.0, **kwargs):
@@ -19,22 +19,19 @@ class UnreliableCaår(Car):
         
         
     def drive(self, distance):
-        """Drive the car if a random number is less than the car's reliability.
-        
-        Returns the distance driven, which may be 0 if the car is unreliable.
+        """Drive the car a given distance.
+
+        Drive given distance if car has enough fuel and is reliable enough
+        or drive until fuel runs out return the distance actually driven.
         """
-        # Generate a random float between 0 and 100
         random_number = random.uniform(0, 100)
-        # Only drive if random number is less than reliability
         if random_number < self.reliability:
-            # Call the parent class's drive method and return its result
             distance_driven = super().drive(distance)
             return distance_driven
-        else:
-            # Car doesn't drive, return 0 distance
-            return 0
+        return 0
 
     def __str__(self):
+        """Return a string like a Car with name, fuel and odometer values."""
         return super().__str__()
     
     
