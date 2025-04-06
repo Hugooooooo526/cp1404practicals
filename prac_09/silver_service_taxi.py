@@ -22,7 +22,7 @@ class SilverServiceTaxi(Taxi):
         # Multiply the price_per_km by the fanciness factor
         self.price_per_km = Taxi.price_per_km * fanciness
         self.fanciness = fanciness
-
+        
     def get_fare(self):
         """Calculate the total fare including flagfall fee.
         
@@ -31,5 +31,14 @@ class SilverServiceTaxi(Taxi):
         """
         # Get the fare from the parent class method and add the flagfall
         return super().get_fare() + self.flagfall
+    
+    def __str__(self):
+        """Return a string representation of the SilverServiceTaxi.
+        
+        Returns:
+            String representation including parent's details and flagfall
+        """
+        # Use the parent class's string method and add flagfall information
+        return f"{super().__str__()} plus flagfall of ${self.flagfall:.2f}"
 
     # Class will be implemented step by step
