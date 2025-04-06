@@ -8,8 +8,7 @@ from prac_09.taxi import Taxi
 def main():
     """Test the Taxi class."""
     
-    # Create a new taxi with 100 units of fuel and $1.23/km fare
-    my_taxi = Taxi("Prius 1", 100, 1.23)
+    my_taxi = Taxi("Prius 1", 100)
     
     # Drive the taxi 40km
     my_taxi.drive(40)
